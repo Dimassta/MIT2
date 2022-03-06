@@ -1,15 +1,17 @@
 #include <iostream>
 
 using namespace std;
-int fib(int n) {
-	if (n == 1)
-		return 0;
-	else if (n == 2 || n == 3)
-		return 1;
-	else
-		return fib(n - 1) + fib(n - 2);
+void fib(int n) {
+	int *s = new int[n];
+	s[0] = 0;
+	s[1] = 1;
+	for (int i = 2; i < n; i++) {
+		s[i] = s[i - 1] + s[i - 2];
+	}
+	for (int i = 0; i < n; i++)
+		cout << s[i] << endl;
 }
 int main() {
-	cout << fib(10);
+	fib(10);
 	return 0;
 }
